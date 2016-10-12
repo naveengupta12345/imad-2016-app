@@ -3,6 +3,54 @@ var morgan = require('morgan');
 var path = require('path');
 
 var app = express();
+var articleone={
+    title:'Article One',
+    header:'Article-One',
+    date:'October 12,2016',
+    content:    
+              ` <p>
+                Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test
+                </p>
+            <p>Hello naveen breaking line!!!!!!!!!!!!</p>
+            <hr/ `
+};
+function myfunction(data)
+{ var title= data.title;
+  var header=data.header;
+  var date=data.date;
+  var content=data.content;
+    
+var template=`
+    <!DOCTYPE html>
+<html>
+    <head>
+        <title>${title}</title>
+    </head>
+    <body>
+        <div>
+            <a href='\'>Home</a>
+        </div>
+        <div>
+          <h1> ${header} </h1>
+        
+        </div>
+        <div>
+          ${date}
+         
+        </div>
+        <hr/>
+    
+         <div>
+            ${content}
+         </div>
+        
+        
+    </body>
+    
+</html> `
+;
+return htmlTemplate;
+}
 app.use(morgan('combined'));
 
 app.get('/', function (req, res) {
@@ -12,7 +60,7 @@ app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
 app.get('/article-one', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui','article-one.html'));
+  res.sendFile(path.join(myfunction(articleone)));
 });
 app.get('/article-two', function (req, res) {
   res.send('This is article two serving you.....WElcome!!!');
