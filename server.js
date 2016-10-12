@@ -4,7 +4,7 @@ var path = require('path');
 
 var app = express();
 var articles={     
-                     articleone:   {    title:'Article One',
+                     'article-one':   {    title:'Article One',
                                header:'Article-One',
                                date:'October 12,2016',
                                content:    
@@ -14,7 +14,7 @@ var articles={
                                          <p>Hello naveen breaking line!!!!!!!!!!!!</p>
                                            <hr/ `
                                     },
-                    articletwo:{
+                   ' article-two':{
                                  title:'Article Two',
                                header:'Article-Two',
                                date:'October 13,2016',
@@ -23,7 +23,7 @@ var articles={
                                     Lets start doing this simple example test.Lets start doing this simple example test.
                                       </p>`
                     },
-                    articlethree:{
+                    'article-three':{
                                     title:'Article Three',
                                header:'Article-Three',
                                date:'October 15,2016',
@@ -82,7 +82,8 @@ app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
 app.get('/:xyz', function (req, res) {
-  res.send(myfunction(articleone[xyz]));
+    var vou=req.params.xyz;
+  res.send(myfunction(articleone[vou]));
 });
 app.get('/article-two', function (req, res) {
   res.send('This is article two serving you.....WElcome!!!');
