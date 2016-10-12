@@ -3,17 +3,39 @@ var morgan = require('morgan');
 var path = require('path');
 
 var app = express();
-var articleone={
-    title:'Article One',
-    header:'Article-One',
-    date:'October 12,2016',
-    content:    
-              ` <p>
-                Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test
-                </p>
-            <p>Hello naveen breaking line!!!!!!!!!!!!</p>
-            <hr/ `
+var articles={     
+                     articleone:   {    title:'Article One',
+                               header:'Article-One',
+                               date:'October 12,2016',
+                               content:    
+                                           ` <p>
+                                    Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test.Lets start doing this simple example test
+                                                  </p>
+                                         <p>Hello naveen breaking line!!!!!!!!!!!!</p>
+                                           <hr/ `
+                                    },
+                    articletwo:{
+                                 title:'Article Two',
+                               header:'Article-Two',
+                               date:'October 13,2016',
+                               content:    
+                                           ` <p>
+                                    Lets start doing this simple example test.Lets start doing this simple example test.
+                                      </p>`
+                    },
+                    articlethree:{
+                                    title:'Article Three',
+                               header:'Article-Three',
+                               date:'October 15,2016',
+                               content:    
+                                             ` <p>
+                                    Lets start doing this simple example test.Lets start doing this simple example test.Lets this simple example test.Lets start doing this simple example test
+                                                  </p>
+                                         <p>Hello naveen breaking line!!!!!!!!!!!!</p>
+                                           <hr/> `
+                    }
 };
+    
 function myfunction(data)
 { var title= data.title;
   var header=data.header;
@@ -59,8 +81,8 @@ app.get('/', function (req, res) {
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
-app.get('/article-one', function (req, res) {
-  res.send(myfunction(articleone));
+app.get('/:xyz', function (req, res) {
+  res.send(myfunction(articleone[xyz]));
 });
 app.get('/article-two', function (req, res) {
   res.send('This is article two serving you.....WElcome!!!');
