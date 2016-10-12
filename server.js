@@ -49,7 +49,7 @@ var template=`
     
 </html> `
 ;
-return htmlTemplate;
+return template;
 }
 app.use(morgan('combined'));
 
