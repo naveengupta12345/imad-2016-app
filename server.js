@@ -85,12 +85,7 @@ app.get('/:xyz', function (req, res) {
     var vou=req.params.xyz;
   res.send(myfunction(articles[vou]));
 });
-app.get('/article-two', function (req, res) {
-  res.send('This is article two serving you.....WElcome!!!');
-});
-app.get('/article-three', function (req, res) {
-  res.send('This is article three serving you.....WElcome!!!');
-});
+
 
 app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
